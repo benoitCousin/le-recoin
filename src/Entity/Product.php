@@ -126,9 +126,9 @@ class Product
         return $this->user;
     }
 
-    public function setUser(user $user): self
+    public function setuser(user $user): self
     {
-        $this->User = $user;
+        $this->user = $user;
 
         return $this;
     }
