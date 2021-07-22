@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/bootstrap.scss";
+body {
+    background-color: lightgrey!important;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box!important;
+}
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#carouselExampleIndicators{
+    box-sizing: border-box!important;
+    min-height: 100%;
+}
+
+/*======================register form==================*/
+.body-background {
+    height: 100vh;
+}
+
+.card {
+    width: 400px;
+    margin-top: 4rem;
+}
