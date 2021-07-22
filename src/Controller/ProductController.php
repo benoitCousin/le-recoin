@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Images;
 use App\Entity\Product;
-use App\Form\ProductType;
+use App\Form\ProductsType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,10 +32,32 @@ class ProductController extends AbstractController
     public function new(Request $request): Response
     {
         $product = new Product();
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $product->setActive(false);
+            //recupération des img transmises 
+
+            $images = $form->get('images')->getData();
+             // boucle sur les img
+            foreach($images as $image){
+                //génére un nouveau nom de fichier
+                $fichier = md5(uniqid()).'.'. $image->guessExtension();
+                // guessExtention genere le format = jpg png etc etc 
+                
+                //copie du fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $fichier
+                );
+
+            // stock img dans bd ( son nom )
+
+                $img = new Images();
+                $img->setName($fichier);
+                $product->addImage($img);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
@@ -63,11 +86,34 @@ class ProductController extends AbstractController
      */
     public function edit(Request $request, Product $product): Response
     {
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+                        //recupération des img transmises 
+                        $product->setActive(false);
+                        $images = $form->get('images')->getData();
+                        // boucle sur les img
+                       foreach($images as $image){
+                           //génére un nouveau nom de fichier
+                           $fichier = md5(uniqid()).'.'. $image->guessExtension();
+                           // guessExtention genere le format = jpg png etc etc 
+                           
+                           //copie du fichier dans le dossier uploads
+                           $image->move(
+                               $this->getParameter('images_directory'),
+                               $fichier
+                           );
+           
+                       // stock img dans bd ( son nom )
+           
+                           $img = new Images();
+                           $img->setName($fichier);
+                           $product->addImage($img);
+                       }
             $this->getDoctrine()->getManager()->flush();
+
 
             return $this->redirectToRoute('product_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -90,5 +136,11 @@ class ProductController extends AbstractController
         }
 
         return $this->redirectToRoute('product_index', [], Response::HTTP_SEE_OTHER);
+    }
+    /**
+     * @Route("/delete/image/{id}", name="product_delete_image", methods={"DELETE"})
+     */
+    public function deleteImage(){
+
     }
 }

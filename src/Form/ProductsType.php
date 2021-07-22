@@ -7,6 +7,7 @@ use App\Entity\Categories;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,14 +24,15 @@ class ProductsType extends AbstractType
             ->add('categories', EntityType::class, [
                 'class' => Categories::class
             ])
+            ->add('images', FileType::class,[
+                'label'=>false,
+                'multiple'=>true,
+                'mapped'=>false,
+                'required'=>false,
+            ])
             ->add('Valider', SubmitType::class)
 
-            ->add('images', FileType::class,[
-                'label' => false,
-                'multiple' => true,
-                'mapped' => false,
-                'required' => false
-            ])
+            
         ;
     }
     public function configureOptions(OptionsResolver $resolver)

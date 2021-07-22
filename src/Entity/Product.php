@@ -48,7 +48,7 @@ class Product
     private $active;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;
@@ -65,7 +65,7 @@ class Product
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="product", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="product", orphanRemoval=true , cascade={"persist"})
      */
     private $images;
 
