@@ -24,6 +24,13 @@ class ProductsType extends AbstractType
                 'class' => Categories::class
             ])
             ->add('Valider', SubmitType::class)
+
+            ->add('images', FileType::class,[
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false
+            ])
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
