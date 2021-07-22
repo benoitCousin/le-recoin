@@ -4,31 +4,38 @@
 
 {% block body %}
         
-        <div class="container">
-            <div class="row">
+        <div class="container mt-5">
+                    {% for message  in app.flashes('message') %}
+                        <div class="alert alert-success" role="alert">{{message}}</div>
+                    {% endfor %}
+                    {% for message  in app.flashes('error') %}
+                        <div class="alert alert-danger" role="alert">{{message}}</div>
+                    {% endfor %}
+            
                 <div> <h2>Profil de {{ app.user.FirstName }}</h2></div>
                     <div class="row row-col-3">
                         <div class="col"> Nom: {{ app.user.Name }}</div>
                         <div class="col">Prénom : {{ app.user.FirstName }} </div>
                         <div class="col"> Email : {{ app.user.Email }} </div>
-                    </div>
-                    <div>
-                        
-                    </div>
-                    <div class="row">
-                        <div class="row"><button class="btn btn-primary" type="submit">Modifier le profil</button></div>
-                        <div class="row"><button class="btn btn-primary" type="submit">Modifier le MDP</button></div>
-                    </div>
+                    </div>        
+                </div>
                     <div class="row">
                     
                         <h2> Vous avez {{ app.user.products|length }} annonces en ligne</h2>
                     </div>
                     
-                    {% for product in app.user.products %}
-                        <div class=""> Titre:</div>
-                        <div class=""> {{ product.title }}</div>
+                {% for product in app.user.products %}
 
-                    {% endfor %} 
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                {% endfor %} 
         </div>
 
 {% endblock %}

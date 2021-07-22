@@ -13,10 +13,10 @@
         <li class="nav-item">
         {% if app.user %}
             <li>
-                <a href="{{ path('user_profile_edit')}}" class="nav-link px-0"> <span class="d-none d-sm-inline">Modifier mon profil</span> </a>
+                <a href="{{ path('user_profile_edit')}}" class="nav-link"> <span class="d-none d-sm-inline">Modifier mon profil</span> </a>
             </li>
             <li>
-                <a href="{{ path('user_product_ajout') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">Publier</span> </a>
+                <a href="{{ path('user_product_ajout') }}" class="nav-link"> <span class="d-none d-sm-inline">Publier</span> </a>
             </li>
             <li>
                 <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
