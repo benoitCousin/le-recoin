@@ -1,115 +1,69 @@
 {% extends "base.html.twig" %}
 
 {% block title %} Acceuil {% endblock %}
-{% block body %} {% include 'component/_carousel.html.twig' %} 
+{% block body %} 
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  
+    <div class="carousel-inner">
+          
+          <div class="carousel-item active">
+            <img src="https://cdn.pixabay.com/photo/2017/08/20/09/10/system-2660914_960_720.jpg" class="d-block w-100">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="display-4">Bienvenue</h3>
+                <p class="lead">This is a description for the first slide.</p>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_960_720.jpg" class="d-block w-100">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="display-4">Annonce populaire</h3>
+                <p class="lead">This is a description for the second slide.</p>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img  src="https://cdn.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_960_720.jpg" class="d-block w-100">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="display-4">Rejoignez-nous</h3>
+                <p class="lead">This is a description for the Third slide.</p>
+              </div>
+          </div>
+          
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"aria-label="Slide 3"></button>
+          </div>
 
-<h2 class="text-center mt-4"> Les plus populaires : </h2>
-<div class="row row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2018/06/30/09/29/music-3507317_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="">Suivant</span>
+            </button>
     </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2021/07/11/14/18/water-lily-6403860_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2021/07/09/06/52/lavender-6398415_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2021/06/27/03/06/supreme-administrative-court-6367607_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2021/07/09/06/52/lavender-6398415_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2021/06/27/03/06/supreme-administrative-court-6367607_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2018/06/30/09/29/music-3507317_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2021/07/11/14/18/water-lily-6403860_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-    <div class="col">
-    <div class="card mx-auto">
-      <img src="https://cdn.pixabay.com/photo/2018/06/30/09/29/music-3507317_960_720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
+</div>
 
-</div>  
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mt-4 mb-4">Annonces populaires :</h2>
+        </div>
+        {% for product in product %}
+        <div class="col-md-6 col-lg-4">
+            <!-- Bootstrap 5 card box -->
+            <div class="card-box">
+                <div class="card-thumbnail">
 
-
-
-
-
-
+                    {#<img src="{{ asset('uploads/images/product/' ~ product.images[0].name) }}" class="img-fluid" alt="{{ product.title}}">#}
+                </div>
+                <h3><a href="#" class="mt-2 text-danger">{{ product.title }}</a></h3>
+                <p class="text-secondary">{{ product.content }}</p>
+                <a href="#" class="btn btn-sm btn-secondary float-right">Read more >></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

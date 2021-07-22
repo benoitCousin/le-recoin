@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Images;
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,12 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HomeController extends AbstractController
     {
+        
         /**
          * @Route("/", name="index")
          */
-        public function index(): Response
-        {
-            return $this->render('home/index.html.twig');
+        public function index(ProductRepository $productRepository)
+        {   
+           
+            return $this->render('home/index.html.twig', [
+                'product' => $productRepository->findBy(['active' => true],['created_at'=>'desc']),
+            ]);
+            
         }
     }
 
