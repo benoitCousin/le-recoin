@@ -4,7 +4,10 @@
 
 {% block body %}
         
-        <div class="container mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    
                     {% for message  in app.flashes('message') %}
                         <div class="alert alert-success" role="alert">{{message}}</div>
                     {% endfor %}
@@ -12,30 +15,39 @@
                         <div class="alert alert-danger" role="alert">{{message}}</div>
                     {% endfor %}
             
-                <div> <h2>Profil de {{ app.user.FirstName }}</h2></div>
-                    <div class="row row-col-3">
+                    <div> <h2>Profil de {{ app.user.FirstName }}</h2> </div>
+                    
                         <div class="col"> Nom: {{ app.user.Name }}</div>
                         <div class="col">Prénom : {{ app.user.FirstName }} </div>
                         <div class="col"> Email : {{ app.user.Email }} </div>
-                    </div>        
+                           
                 </div>
+            </div>
+        </div>
+                    
+                    
+                <div class="container">
                     <div class="row">
-                    
-                        <h2> Vous avez {{ app.user.products|length }} annonces en ligne</h2>
-                    </div>
-                    
-                {% for product in app.user.products %}
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.title }}</h5>
-                            <p class="card-text">{{ product.content }}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="col-12">
+                            <h2> Vous avez {{ app.user.products|length }} annonces en ligne</h2>
                         </div>
-                    </div>
+                        {% for product in app.user.products %}
 
-                {% endfor %} 
+                        <div class="col-md-6 col-lg-4">
+
+                            <div class="card-box">
+                                <div class="card-thumbnail">
+                                    {{ dump(product.images) }} ;
+                                {# <img src="{{ asset('uploads/images/product' ~ product.images[0].name ) }}" class="img-fluid" alt="image">#}
+                                </div>
+                                <h3><a href="#" class="mt-2 text-danger">{{ product.title }}</a></h3>
+                                <p class="text-secondary">{{ product.content|raw }}</p>
+                                <a href="#" class="btn btn-sm btn-secondary float-right">Voir l'annonce >></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
         </div>
 
 {% endblock %}
