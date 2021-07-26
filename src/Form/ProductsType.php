@@ -23,14 +23,15 @@ class ProductsType extends AbstractType
             ->add('content', CKEditorType::class)
             ->add('categories', EntityType::class, [
                 'class' => Categories::class
-            ])
+                ])
+            
             ->add('images', FileType::class,[
                 'label'=>false,
                 'multiple'=>true,
                 'mapped'=>false,
                 'required'=>false,
             ])
-            ->add('Valider', SubmitType::class)
+            
 
             
         ;
