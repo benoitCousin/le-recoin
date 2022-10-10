@@ -21,7 +21,7 @@ class HomeController extends AbstractController
         {   
            
             return $this->render('home/index.html.twig', [
-                'product' => $productRepository->findBy(['active' => true],['created_at'=>'desc']),
+                'products' => $productRepository->findBy(['active' => false],['created_at'=>'desc']),
             ]);
             
         }
